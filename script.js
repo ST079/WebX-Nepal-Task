@@ -175,8 +175,8 @@ document.addEventListener("mousemove", (e) => {
   const centerY = window.innerHeight / 2;
 
   // calculate rotation based on mouse distance from center
-  const rotateY = ((e.clientX - centerX) / centerX) * 5;
-  const rotateX = -((e.clientY - centerY) / centerY) * 5;
+  const rotateY = ((e.clientX - centerX) / centerX) * 8;
+  const rotateX = -((e.clientY - centerY) / centerY) * 8;
 
   gsap.to(innerBox, {
     rotationY: rotateY,
