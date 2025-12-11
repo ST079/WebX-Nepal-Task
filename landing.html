@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="border-box bg-black text-white">
+    <header class="flex justify-between fixed left-0 top-[40px] p-5 items-center text-2xl w-full px-[24px] mx-auto">
+        <div class="left-wrapper flex items-center">
+            <div class="flex relative z-50">
+                <h1 class="bg-[#FF0090] text-black py-5 px-1 text-2xl font-medium">Huge</h1>
+                <div>
+                    <button class="bg-white text-black py-5 px-1 text-2xl font-medium hover:cursor absolute z-50 w-20" id="menu-btn">Menu</button>
+                    <ul class="flex bg-[#1B1E23] gap-4 p-5 relative opacity-0" id="nav">
+                        <li><a href="#"></a>About</li>
+                        <li><a href="#"></a>What we do</li>
+                        <li><a href="#"></a>Work</li>
+                        <li><a href="#"></a>Ideas</li>
+                        <li><a href="#"></a>Carrers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="rigt-wrapper">
+            <h1>Lets Talk</h1>
+        </div>
+    </header>
+    <div class="flex">
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const nav = document.getElementById("nav");
+        const btn = document.getElementById("menu-btn");
+
+        let navOpen = false;
+        btn.addEventListener("click", () => {
+            if (!navOpen) {
+                gsap.to(nav, {
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power3.out",
+                });
+                
+            } else {
+                gsap.to(nav, {
+                    opacity: 0,      
+                    duration: 0.2,
+                    ease: "power1.in"
+                });
+            }
+            navOpen = !navOpen;
+
+            gsap.to(btn, {
+                x: navOpen ? nav.offsetWidth : 0,
+                duration: 0.8,
+                ease: "power3.out",
+                backgroundColor: navOpen? "#424A53":"white",
+                textContent: navOpen? "X":"Menu",
+                color: navOpen? "white":"black",
+                
+            });
+        });
+
+    </script>
+</body>
+
+</html>

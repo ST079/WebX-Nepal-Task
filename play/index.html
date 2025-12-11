@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<button id="menu-btn">Menu</button>
+
+<nav id="nav">
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <a href="#">Work</a>
+    <a href="#">Contact</a>
+</nav>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const nav = document.getElementById("nav");
+            const btn = document.getElementById("menu-btn");
+
+            let navOpen = false;
+
+            btn.addEventListener("click", () => {
+                if (!navOpen) {
+                    gsap.to(nav, {
+                        right: 0,
+                        duration: 0.5,
+                        ease: "power3.out",
+                    });
+                } else {
+                    gsap.to(nav, {
+                        right: "-200px",
+                        duration: 0.5,
+                        ease: "power3.in",
+                    });
+                }
+
+                navOpen = !navOpen;
+            });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#box{
+    height: 300px;
+    width: 300px;
+    background-color: lightblue;
+}
+
+#nav {
+  position: fixed;
+  right: -200px;   /* hidden */
+  top: 0;
+  width: 200px;
+  height: 100vh;
+  background: #000;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+}
