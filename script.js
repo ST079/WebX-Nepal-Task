@@ -1,6 +1,8 @@
 const counter = { value: 0 };
 const display = document.getElementById("counter");
 const head = document.getElementById("head");
+const loader = document.getElementById("loader");
+const overlay = document.getElementById("overlay");
 gsap.to("#box", {
   y: -1000,
   duration: 2,
@@ -28,6 +30,20 @@ gsap.to("#counter", {
     if (counter.value >= 50) {
       head.textContent = "We Are";
     }
+  },
+  onComplete: () => {
+    // Fade out loader when counter reaches 100%
+    gsap.to(loader, {
+      opacity: 0,
+      duration: 0.5,
+      delay: 1,
+      ease: "power2.out",
+      onComplete: () => {
+        overlay.style.backgroundColor = "red";
+        loader.style.display = "none";
+        window.location.href = "landing.html"; 
+      },
+    });
   },
 });
 
@@ -77,4 +93,3 @@ animateText();
 
 // Repeat smoothly
 setInterval(animateText, 3000);
-
