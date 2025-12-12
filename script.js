@@ -7,6 +7,10 @@ const header = document.getElementById("header");
 const mainSection = document.getElementById("main-section");
 const btn = document.getElementById("menu-btn");
 const nav = document.getElementById("nav");
+const body = document.getElementById("body");
+
+// Prevent scrolling during loading
+
 
 // Box Animation
 gsap.to("#box", {
@@ -23,6 +27,7 @@ gsap.to(counter, {
   ease: "linear",
   onUpdate: () => {
     display.textContent = Math.round(counter.value) + "%";
+    body.style.overflow = "hidden";
   },
 });
 
@@ -47,6 +52,7 @@ gsap.to("#counter", {
         loader.style.display = "none";
         header.style.display = "flex";
         mainSection.style.display = "block";
+        body.style.overflow = "block";
       },
     });
   },
@@ -176,12 +182,39 @@ document.addEventListener("mousemove", (e) => {
 
   // calculate rotation based on mouse distance from center
   const rotateY = ((e.clientX - centerX) / centerX) * 8;
-  const rotateX = -((e.clientY - centerY) / centerY) * 8;
+  const rotateX = -((e.clientY - centerY) / centerY) * 6;
 
   gsap.to(innerBox, {
     rotationY: rotateY,
     rotationX: rotateX,
     duration: 0.4,
     ease: "power2.out",
+  });
+});
+
+
+//form
+const form = document.getElementById("form-container");
+const closeBtn = document.getElementById("close-btn");
+const contactBtn = document.getElementById("contact");
+
+// Initially hide form off-screen
+gsap.set( "#form-container", { x: "100%" });
+
+// Slide in form when contact button is clicked
+contactBtn.addEventListener("click", () => {
+  gsap.to(form, {
+    x: "0%",
+    duration: 0.8,
+    ease: "power3.out",
+  });
+});
+
+// Slide out form when close button is clicked
+closeBtn.addEventListener("click", () => {
+  gsap.to(form, {
+    x: "100%",
+    duration: 0.6,
+    ease: "power3.in",
   });
 });
