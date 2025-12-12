@@ -46,9 +46,10 @@ gsap.to("#counter", {
     // Fade out loader when counter reaches 100%
     gsap.to(loader, {
       opacity: 0,
-      duration: 0.5,
+      duration: 0.2,
       delay: 1,
       onComplete: () => {
+        overlay.style.backgroundColor = "gray";
         loader.style.display = "none";
         header.style.display = "flex";
         mainSection.style.display = "block";
@@ -203,6 +204,7 @@ gsap.set( "#form-container", { x: "100%" });
 
 // Slide in form when contact button is clicked
 contactBtn.addEventListener("click", () => {
+  form.style.display = "block"; // Show form container
   gsap.to(form, {
     x: "0%",
     duration: 0.8,
