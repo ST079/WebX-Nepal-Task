@@ -121,6 +121,11 @@ body {
 }
 
 /* Form */
+
+#form-container {
+  transform: translateX(100%) !important; /* initially off-screen */
+}
+
 .input-box {
   position: relative;
   padding: 10px 0;
